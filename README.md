@@ -1,105 +1,76 @@
-The current README file is already well-structured, but here are some suggestions to improve it further:
+Aqui está uma sugestão de README.md reformulado e aprimorado para o seu projeto CSV Data Analyzer:
 
-### 1. Add a Table of Contents
-- For easier navigation, especially for larger README files, include a table of contents linking to each section (e.g., Features, How to Use, Project Structure, etc.).
+---
 
-Example:
-```markdown
-## Table of Contents
-1. [Features](#features)
-2. [How to Use](#how-to-use)
-3. [Project Structure](#project-structure)
-4. [Contributing](#contributing)
-5. [License](#license)
-```
+# CSV Data Analyzer
 
-### 2. Enhance the Introduction
-- Provide a more detailed overview explaining the purpose and potential use cases of the tool.
-- Include a screenshot or GIF of the application in action if applicable. Visuals make the README more engaging.
-
-### 3. Add Prerequisites
-- Mention any specific software or version requirements (e.g., Python version, required libraries, etc.).
-
-Example:
-```markdown
-### Prerequisites
-- Python 3.8 or higher
-- pip (Python package installer)
-```
-
-### 4. Improve Installation Instructions
-- Add separate subsections for different setup environments or platforms if relevant (e.g., Windows, macOS, Linux).
-
-Example:
-```markdown
-#### For Windows:
-```bash
-pip install -r requirements.txt
-python main.py
-```
-
-#### For macOS/Linux:
-```bash
-pip3 install -r requirements.txt
-python3 main.py
-```
-
-### 5. Provide Examples
-- Add example commands or screenshots showing how the tool processes CSV files and displays results.
-
-Example:
-```markdown
-### Example Usage
-```bash
-python main.py data/exemplo.csv
-```
-Output:
-| Column1 | Column2 | Column3 |
-|---------|---------|---------|
-| Value1  | Value2  | Value3  |
-```
-
-### 6. Add a FAQ Section
-- Address common questions or issues users might face.
-
-Example:
-```markdown
-## FAQ
-**Q**: What formats of CSV files are supported?  
-**A**: The tool supports standard CSV files with comma-separated values.
-
-**Q**: How do I report a bug?  
-**A**: Open an issue in the GitHub repository with a detailed description of the problem.
-```
-
-### 7. Include Badges
-- Add badges for build status, license, contributions, or Python version compatibility.
-
-Example:
-```markdown
 ![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)
-![Python](https://img.shields.io/badge/python-3.8%2B-blue)
-```
 
-### 8. Expand the Contribution Section
-- Include a code of conduct and a link to a CONTRIBUTING.md file if available.
+Uma ferramenta web simples para visualizar, analisar e extrair informações de arquivos CSV diretamente no navegador.
 
-### 9. Improve the License Section
-- Provide a direct link to the LICENSE file for easier access.
+## Índice
 
-Example:
-```markdown
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-```
+1. [Sobre o Projeto](#sobre-o-projeto)
+2. [Pré-requisitos](#pré-requisitos)
+3. [Como Usar](#como-usar)
+4. [Exemplo de Uso](#exemplo-de-uso)
+5. [Contribuindo](#contribuindo)
+6. [Licença](#licença)
+7. [Suporte](#suporte)
+8. [FAQ](#faq)
 
-### 10. Add a "Support" Section
-- Let users know how they can get help or report issues.
+## Sobre o Projeto
 
-Example:
-```markdown
-## Support
-If you encounter any issues or have questions, please open an [issue](https://github.com/alex-des-santos/CSV-Data-Analyzer/issues).
-```
+O **CSV Data Analyzer** é uma aplicação HTML/JavaScript que permite o upload e a análise de arquivos CSV, facilitando a visualização e o entendimento dos dados sem precisar instalar programas adicionais. Ideal para estudantes, pesquisadores, profissionais de dados e qualquer pessoa que trabalhe com planilhas.
 
-Let me know if you'd like me to implement any of these changes or provide further details!
+## Pré-requisitos
+
+- Navegador web moderno (Chrome, Firefox, Edge, Safari)
+- Não é necessário instalar nada: basta abrir o arquivo `index.html`
+
+## Como Usar
+
+1. Faça o download ou clone este repositório:
+   ```bash
+   git clone https://github.com/alex-des-santos/CSV-Data-Analyzer.git
+   ```
+2. Abra o arquivo `index.html` no seu navegador.
+3. Faça upload do seu arquivo CSV usando a interface.
+4. Visualize, filtre e analise os dados diretamente na página.
+
+## Exemplo de Uso
+
+- Faça upload de um arquivo `exemplo.csv`.
+- Os dados aparecerão em uma tabela interativa na tela.
+- Você pode ordenar as colunas, buscar valores e exportar o resultado.
+
+> **Dica:** Adicione imagens ou GIFs de demonstração aqui para tornar o README mais visual.
+
+## Contribuindo
+
+Contribuições são bem-vindas! Para contribuir:
+- Faça um fork do projeto
+- Crie uma branch para sua feature ou correção
+- Envie um Pull Request
+
+Consulte o arquivo [CONTRIBUTING.md](CONTRIBUTING.md) para detalhes e siga nosso [Código de Conduta](CODE_OF_CONDUCT.md).
+
+## Licença
+
+Este projeto está licenciado sob a Licença MIT. Consulte o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+## Suporte
+
+Se você encontrar algum problema ou tiver dúvidas, abra uma [issue](https://github.com/alex-des-santos/CSV-Data-Analyzer/issues).
+
+## FAQ
+
+**Q:** Quais formatos de CSV são suportados?  
+**A:** O analisador suporta arquivos CSV padrão com valores separados por vírgulas.
+
+**Q:** Como reportar um bug?  
+**A:** Abra uma issue no GitHub com uma descrição detalhada do problema.
+
+---
+
+Se quiser incluir exemplos específicos, GIFs ou customizações, me avise! Posso gerar o conteúdo ou adaptar conforme sua necessidade.
