@@ -2,7 +2,7 @@ Aqui está uma sugestão de README.md reformulado e aprimorado para o seu projet
 
 ---
 
-# CSV Data Analyzer
+# csv-insights-tool
 
 ![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)
 
