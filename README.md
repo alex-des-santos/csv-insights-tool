@@ -1,4 +1,4 @@
-CSV Data Analyzer
+# CSV Data Analyzer
 Ferramenta para análise de dados em arquivos CSV, desenvolvida para facilitar a manipulação, visualização e extração de informações relevantes de planilhas e bancos de dados em formato CSV.
 
 Funcionalidades
