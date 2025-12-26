@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,33 +17,57 @@
     </script>
     <style>
         :root {
-            --bg-primary: #f1f5f9; /* slate-100 */
-            --bg-secondary: #ffffff; /* white */
-            --bg-tertiary: #f8fafc; /* slate-50 */
-            --text-primary: #1e293b; /* slate-800 */
-            --text-secondary: #475569; /* slate-600 */
-            --text-muted: #64748b; /* slate-500 */
-            --border-primary: #e2e8f0; /* slate-200 */
-            --border-secondary: #cbd5e1; /* slate-300 */
-            --accent-color: #0ea5e9; /* sky-500 */
-            --accent-hover: #0284c7; /* sky-600 */
-            --warning-color: #f59e0b; /* amber-500 */
-            --warning-bg: #fef3c7; /* amber-100 */
+            --bg-primary: #f1f5f9;
+            /* slate-100 */
+            --bg-secondary: #ffffff;
+            /* white */
+            --bg-tertiary: #f8fafc;
+            /* slate-50 */
+            --text-primary: #1e293b;
+            /* slate-800 */
+            --text-secondary: #475569;
+            /* slate-600 */
+            --text-muted: #64748b;
+            /* slate-500 */
+            --border-primary: #e2e8f0;
+            /* slate-200 */
+            --border-secondary: #cbd5e1;
+            /* slate-300 */
+            --accent-color: #0ea5e9;
+            /* sky-500 */
+            --accent-hover: #0284c7;
+            /* sky-600 */
+            --warning-color: #f59e0b;
+            /* amber-500 */
+            --warning-bg: #fef3c7;
+            /* amber-100 */
         }
 
         [data-theme="dark"] {
-            --bg-primary: #0f172a; /* slate-900 */
-            --bg-secondary: #1e293b; /* slate-800 */
-            --bg-tertiary: #334155; /* slate-700 */
-            --text-primary: #e2e8f0; /* slate-200 */
-            --text-secondary: #94a3b8; /* slate-400 */
-            --text-muted: #64748b; /* slate-500 */
-            --border-primary: #475569; /* slate-600 */
-            --border-secondary: #374151; /* slate-700 */
-            --accent-color: #38bdf8; /* sky-400 */
-            --accent-hover: #0ea5e9; /* sky-500 */
-            --warning-color: #fbbf24; /* amber-400 */
-            --warning-bg: #451a03; /* amber-950 with low opacity */
+            --bg-primary: #0f172a;
+            /* slate-900 */
+            --bg-secondary: #1e293b;
+            /* slate-800 */
+            --bg-tertiary: #334155;
+            /* slate-700 */
+            --text-primary: #e2e8f0;
+            /* slate-200 */
+            --text-secondary: #94a3b8;
+            /* slate-400 */
+            --text-muted: #64748b;
+            /* slate-500 */
+            --border-primary: #475569;
+            /* slate-600 */
+            --border-secondary: #374151;
+            /* slate-700 */
+            --accent-color: #38bdf8;
+            /* sky-400 */
+            --accent-hover: #0ea5e9;
+            /* sky-500 */
+            --warning-color: #fbbf24;
+            /* amber-400 */
+            --warning-bg: #451a03;
+            /* amber-950 with low opacity */
         }
 
         body {
@@ -119,7 +144,7 @@
             border-color: var(--border-primary);
             color: var(--text-primary);
         }
-        
+
         .spinner {
             border: 4px solid rgba(0, 0, 0, 0.1);
             width: 36px;
@@ -128,11 +153,17 @@
             border-left-color: var(--accent-color);
             animation: spin 1s ease infinite;
         }
-        
+
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
+
         .toast {
             position: fixed;
             bottom: 20px;
@@ -142,27 +173,32 @@
             border-radius: 8px;
             font-size: 0.875rem;
             z-index: 1000;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             opacity: 0;
             transition: opacity 0.3s ease, transform 0.3s ease;
             color: white;
         }
+
         .toast.show {
             opacity: 1;
             transform: translateX(-50%) translateY(0);
         }
+
         .toast.error {
             background-color: #ef4444;
         }
+
         .toast.success {
             background-color: #22c55e;
         }
+
         /* Estilos para a tabela de preview do CSV */
         .table-cell {
             padding: 8px 12px;
         }
     </style>
 </head>
+
 <body class="min-h-screen flex flex-col items-center p-4 sm:p-6" id="mainBody">
 
     <!-- Controles superiores -->
@@ -180,24 +216,34 @@
     <div class="card shadow-xl rounded-lg p-6 sm:p-8 w-full max-w-2xl border">
         <header class="mb-6 text-center">
             <h1 id="mainTitle" class="text-2xl sm:text-3xl font-bold text-sky-600">Analisador de CSV com LLM</h1>
-            <p id="subtitle" class="text-sm text-secondary mt-1">Faça upload do seu CSV, forneça o contexto e obtenha insights valiosos!</p>
-            <p id="securityNote" class="text-xs warning-box p-2 rounded mt-2 border"><strong>Importante:</strong> Esta aplicação roda no seu navegador. Sua chave de API não é armazenada em nenhum servidor, mas é usada diretamente para se comunicar com a API do Google.</p>
+            <p id="subtitle" class="text-sm text-secondary mt-1">Faça upload do seu CSV, forneça o contexto e obtenha
+                insights valiosos!</p>
+            <p id="securityNote" class="text-xs warning-box p-2 rounded mt-2 border"><strong>Importante:</strong> Esta
+                aplicação roda no seu navegador. Sua chave de API não é armazenada em nenhum servidor, mas é usada
+                diretamente para se comunicar com a API do Google.</p>
         </header>
 
         <div class="space-y-6">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
                 <div class="md:col-span-3">
-                    <label for="apiKey" class="block text-sm font-medium mb-1">Sua Chave de API do Google AI Studio (Gemini):</label>
-                    <input type="password" id="apiKey" class="input-field w-full p-2 border rounded-md shadow-sm" placeholder="Cole sua chave de API aqui">
-                    <p class="text-xs text-muted mt-1" id="apiKeyHelp">Obtenha sua chave em <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener" class="text-sky-600 hover:underline">Google AI Studio</a>.</p>
+                    <label for="apiKey" class="block text-sm font-medium mb-1">Sua Chave de API do Google AI Studio
+                        (Gemini):</label>
+                    <input type="password" id="apiKey" class="input-field w-full p-2 border rounded-md shadow-sm"
+                        placeholder="Cole sua chave de API aqui">
+                    <p class="text-xs text-muted mt-1" id="apiKeyHelp">Obtenha sua chave em <a
+                            href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener"
+                            class="text-sky-600 hover:underline">Google AI Studio</a>.</p>
                 </div>
-                <div class="md:col-span-1">
+                <div class="md:col-span-1 flex flex-col justify-end">
                     <label for="modelSelect" class="block text-sm font-medium mb-1">Modelo:</label>
-                    <select id="modelSelect" class="input-field w-full p-2 border rounded-md shadow-sm">
-                        <option value="gemini-1.5-flash">Gemini 1.5 Flash</option>
-                        <option value="gemini-1.5-pro">Gemini 1.5 Pro</option>
-                        <option value="gemini-2.0-flash">Gemini 2.0 Flash</option>
-                    </select>
+                    <div class="flex space-x-2">
+                        <select id="modelSelect" class="input-field w-full p-2 border rounded-md shadow-sm">
+                            <option value="gemini-2.5-flash">Gemini 2.5 Flash (Recomendado)</option>
+                            <option value="gemini-2.0-flash-lite">Gemini 2.0 Flash Lite</option>
+                            <option value="gemini-2.5-pro">Gemini 2.5 Pro</option>
+                            <option value="gemini-flash-latest">Gemini Flash Latest</option>
+                        </select>
+                    </div>
                 </div>
             </div>
 
@@ -217,17 +263,19 @@
                 <h3 class="text-md font-semibold mb-2">Pré-visualização dos Dados (Cabeçalho e Primeiras 5 Linhas):</h3>
                 <div class="overflow-x-auto bg-tertiary p-3 rounded-md shadow-sm border border-custom">
                     <table id="csvPreviewTable" class="min-w-full text-sm divide-y">
-                        </table>
+                    </table>
                 </div>
             </div>
 
             <div>
                 <label for="context" class="block text-sm font-medium mb-1">2. Forneça o Contexto da Planilha:</label>
-                <textarea id="context" rows="4" class="input-field w-full p-2 border rounded-md shadow-sm" placeholder="Ex: Dados de vendas trimestrais de produtos eletrônicos. 'Qty' é quantidade vendida, 'Rev' é receita em BRL. O objetivo é identificar tendências de vendas."></textarea>
+                <textarea id="context" rows="4" class="input-field w-full p-2 border rounded-md shadow-sm"
+                    placeholder="Ex: Dados de vendas trimestrais de produtos eletrônicos. 'Qty' é quantidade vendida, 'Rev' é receita em BRL. O objetivo é identificar tendências de vendas."></textarea>
             </div>
 
             <div class="text-center">
-                <button id="analyzeButton" class="btn-primary font-semibold py-2 px-6 rounded-md shadow-md transition duration-150 ease-in-out disabled:opacity-50">
+                <button id="analyzeButton"
+                    class="btn-primary font-semibold py-2 px-6 rounded-md shadow-md transition duration-150 ease-in-out disabled:opacity-50">
                     Analisar Dados
                 </button>
                 <div id="loadingIndicator" class="hidden flex justify-center items-center mt-4">
@@ -239,8 +287,9 @@
 
         <div id="resultsSection" class="mt-8 pt-6 border-t border-custom hidden">
             <h2 class="text-xl sm:text-2xl font-semibold text-sky-600 mb-4">Resultados da Análise:</h2>
-            <div id="analysisOutput" class="prose prose-sm max-w-none bg-tertiary p-4 rounded-md shadow overflow-x-auto">
-                </div>
+            <div id="analysisOutput"
+                class="prose prose-sm max-w-none bg-tertiary p-4 rounded-md shadow overflow-x-auto">
+            </div>
         </div>
     </div>
 
@@ -254,20 +303,20 @@
 
     <script>
         // ===== ANÁLISE ESTATÍSTICA LOCAL =====
-        
+
         // Utilitários matemáticos
         function getMedian(values) {
             const sorted = values.slice().sort((a, b) => a - b);
             const mid = Math.floor(sorted.length / 2);
             return sorted.length % 2 !== 0 ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2;
         }
-        
+
         function getStandardDeviation(values) {
             const mean = values.reduce((a, b) => a + b) / values.length;
             const variance = values.reduce((sum, val) => sum + Math.pow(val - mean, 2), 0) / values.length;
             return Math.sqrt(variance);
         }
-        
+
         function getQuartiles(values) {
             const sorted = values.slice().sort((a, b) => a - b);
             const q1Index = Math.floor(sorted.length * 0.25);
@@ -278,42 +327,42 @@
                 iqr: sorted[q3Index] - sorted[q1Index]
             };
         }
-        
+
         function detectOutliers(values) {
             const quartiles = getQuartiles(values);
             const lowerBound = quartiles.q1 - 1.5 * quartiles.iqr;
             const upperBound = quartiles.q3 + 1.5 * quartiles.iqr;
             return values.filter(v => v < lowerBound || v > upperBound);
         }
-        
+
         // Detecção de tipos de colunas
         function detectColumnType(data, column) {
             const values = data.map(row => row[column]).filter(v => v !== null && v !== undefined && v !== '');
             if (values.length === 0) return 'empty';
-            
+
             const numericValues = values.map(v => parseFloat(v)).filter(v => !isNaN(v));
             const numericRatio = numericValues.length / values.length;
-            
+
             if (numericRatio > 0.8) {
                 // Verificar se são datas
                 const dateValues = values.filter(v => !isNaN(Date.parse(v)));
                 if (dateValues.length / values.length > 0.8) return 'date';
-                
+
                 // Verificar se são inteiros
                 const integerRatio = numericValues.filter(v => Number.isInteger(v)).length / numericValues.length;
                 return integerRatio > 0.9 ? 'integer' : 'numeric';
             }
-            
+
             const uniqueRatio = new Set(values).size / values.length;
             return uniqueRatio < 0.1 ? 'categorical' : 'text';
         }
-        
+
         // Análise estatística por coluna
         function analyzeColumn(data, column) {
             const columnType = detectColumnType(data, column);
             const values = data.map(row => row[column]).filter(v => v !== null && v !== undefined && v !== '');
             const nullCount = data.length - values.length;
-            
+
             const analysis = {
                 name: column,
                 type: columnType,
@@ -322,13 +371,13 @@
                 nullCount: nullCount,
                 nullPercentage: (nullCount / data.length * 100).toFixed(2)
             };
-            
+
             if (columnType === 'numeric' || columnType === 'integer') {
                 const numericValues = values.map(v => parseFloat(v)).filter(v => !isNaN(v));
                 if (numericValues.length > 0) {
                     const quartiles = getQuartiles(numericValues);
                     const outliers = detectOutliers(numericValues);
-                    
+
                     analysis.statistics = {
                         mean: (numericValues.reduce((a, b) => a + b) / numericValues.length).toFixed(2),
                         median: getMedian(numericValues).toFixed(2),
@@ -346,7 +395,7 @@
                 const valueCounts = {};
                 values.forEach(v => valueCounts[v] = (valueCounts[v] || 0) + 1);
                 const sortedCounts = Object.entries(valueCounts).sort((a, b) => b[1] - a[1]);
-                
+
                 analysis.categories = {
                     uniqueValues: Object.keys(valueCounts).length,
                     uniqueRatio: (Object.keys(valueCounts).length / values.length).toFixed(3),
@@ -367,26 +416,26 @@
                     };
                 }
             }
-            
+
             return analysis;
         }
-        
+
         // Análise de correlações (apenas colunas numéricas)
         function calculateCorrelations(data, numericColumns) {
             if (numericColumns.length < 2) return {};
-            
+
             const correlations = {};
-            
+
             for (let i = 0; i < numericColumns.length; i++) {
                 for (let j = i + 1; j < numericColumns.length; j++) {
                     const col1 = numericColumns[i];
                     const col2 = numericColumns[j];
-                    
+
                     const pairs = data.map(row => ({
                         x: parseFloat(row[col1]),
                         y: parseFloat(row[col2])
                     })).filter(pair => !isNaN(pair.x) && !isNaN(pair.y));
-                    
+
                     if (pairs.length > 2) {
                         const correlation = calculatePearsonCorrelation(pairs);
                         if (Math.abs(correlation) > 0.1) { // Só incluir correlações relevantes
@@ -400,10 +449,10 @@
                     }
                 }
             }
-            
+
             return correlations;
         }
-        
+
         function calculatePearsonCorrelation(pairs) {
             const n = pairs.length;
             const sumX = pairs.reduce((sum, p) => sum + p.x, 0);
@@ -411,13 +460,13 @@
             const sumXY = pairs.reduce((sum, p) => sum + p.x * p.y, 0);
             const sumX2 = pairs.reduce((sum, p) => sum + p.x * p.x, 0);
             const sumY2 = pairs.reduce((sum, p) => sum + p.y * p.y, 0);
-            
+
             const numerator = n * sumXY - sumX * sumY;
             const denominator = Math.sqrt((n * sumX2 - sumX * sumX) * (n * sumY2 - sumY * sumY));
-            
+
             return denominator === 0 ? 0 : numerator / denominator;
         }
-        
+
         function getCorrelationStrength(r) {
             const abs = Math.abs(r);
             if (abs >= 0.7) return 'forte';
@@ -425,28 +474,28 @@
             if (abs >= 0.2) return 'fraca';
             return 'muito fraca';
         }
-        
+
         // Análise completa do dataset
         function performLocalAnalysis(data) {
             if (!data || data.length === 0) return null;
-            
+
             const columns = Object.keys(data[0]);
             const columnAnalyses = columns.map(col => analyzeColumn(data, col));
-            
+
             const numericColumns = columnAnalyses
                 .filter(analysis => analysis.type === 'numeric' || analysis.type === 'integer')
                 .map(analysis => analysis.name);
-            
+
             const categoricalColumns = columnAnalyses
                 .filter(analysis => analysis.type === 'categorical')
                 .map(analysis => analysis.name);
-            
+
             const dateColumns = columnAnalyses
                 .filter(analysis => analysis.type === 'date')
                 .map(analysis => analysis.name);
-            
+
             const correlations = calculateCorrelations(data, numericColumns);
-            
+
             // Sumário de qualidade dos dados
             const totalCells = data.length * columns.length;
             const nullCells = columnAnalyses.reduce((sum, col) => sum + col.nullCount, 0);
@@ -457,7 +506,7 @@
                 totalCells: totalCells,
                 nullCells: nullCells
             };
-            
+
             return {
                 dataQuality,
                 columns: columnAnalyses,
@@ -475,41 +524,41 @@
                 })
             };
         }
-        
+
         // Geração de sumário inteligente para LLM
         function generateIntelligentSummary(analysis) {
             let summary = `ANÁLISE ESTATÍSTICA COMPLETA DO DATASET\n\n`;
-            
+
             // Visão geral
             summary += `## Visão Geral\n`;
             summary += `- ${analysis.dataQuality.totalRows} registros, ${analysis.dataQuality.totalColumns} colunas\n`;
             summary += `- Completude dos dados: ${analysis.dataQuality.completeness}%\n`;
             summary += `- Tipos: ${analysis.numericColumns.length} numéricas, ${analysis.categoricalColumns.length} categóricas, ${analysis.dateColumns.length} temporais\n\n`;
-            
+
             // Análise por colunas
             summary += `## Análise Detalhada por Coluna\n`;
             analysis.columns.forEach(col => {
                 summary += `### ${col.name} (${col.type})\n`;
                 summary += `- Valores válidos: ${col.validCount}/${col.totalCount} (${(100 - parseFloat(col.nullPercentage)).toFixed(1)}%)\n`;
-                
+
                 if (col.statistics) {
                     summary += `- Estatísticas: μ=${col.statistics.mean}, σ=${col.statistics.std}, mediana=${col.statistics.median}\n`;
                     summary += `- Range: ${col.statistics.min} - ${col.statistics.max}\n`;
                     summary += `- Outliers: ${col.statistics.outliers} (${col.statistics.outliersPercentage}%)\n`;
                 }
-                
+
                 if (col.categories) {
                     summary += `- Valores únicos: ${col.categories.uniqueValues} (diversidade: ${col.categories.uniqueRatio})\n`;
                     summary += `- Valores mais frequentes: ${col.categories.topValues.map(v => `${v.value} (${v.percentage}%)`).join(', ')}\n`;
                 }
-                
+
                 if (col.dateRange) {
                     summary += `- Período: ${col.dateRange.earliest} a ${col.dateRange.latest} (${col.dateRange.span} dias)\n`;
                 }
-                
+
                 summary += `\n`;
             });
-            
+
             // Correlações
             const correlationEntries = Object.entries(analysis.correlations);
             if (correlationEntries.length > 0) {
@@ -519,7 +568,7 @@
                 });
                 summary += `\n`;
             }
-            
+
             return summary;
         }
 
@@ -551,10 +600,12 @@
                     papaParseNotLoaded: "Erro: Biblioteca PapaParse não carregada. Verifique sua conexão ou tente recarregar a página.",
                     markedNotLoaded: "Erro: Biblioteca Marked.js não carregada.",
                     analysisError: "Erro na análise:",
-                    rateLimitRetrying: "Limite de taxa atingido. Tentando novamente em"
+                    rateLimitRetrying: "Limite de taxa atingido. Tentando novamente em",
+                    listModelsError: "Erro ao listar modelos:"
                 },
                 success: {
-                    analysisComplete: "Análise concluída com sucesso!"
+                    analysisComplete: "Análise concluída com sucesso!",
+                    modelsListed: "Modelos listados no console e abaixo."
                 }
             },
             en: {
@@ -583,10 +634,12 @@
                     papaParseNotLoaded: "Error: PapaParse library not loaded. Check your connection or try reloading the page.",
                     markedNotLoaded: "Error: Marked.js library not loaded.",
                     analysisError: "Analysis error:",
-                    rateLimitRetrying: "Rate limit hit. Retrying in"
+                    rateLimitRetrying: "Rate limit hit. Retrying in",
+                    listModelsError: "Error listing models:"
                 },
                 success: {
-                    analysisComplete: "Analysis completed successfully!"
+                    analysisComplete: "Analysis completed successfully!",
+                    modelsListed: "Models listed in console and below."
                 }
             }
         };
@@ -596,7 +649,7 @@
 
         function updateLanguage() {
             const t = translations[currentLang];
-            
+
             document.getElementById('mainTitle').textContent = t.mainTitle;
             document.getElementById('subtitle').textContent = t.subtitle;
             document.getElementById('securityNote').innerHTML = t.securityNote;
@@ -607,15 +660,15 @@
             document.querySelector('label[for="context"]').textContent = t.contextLabel;
             document.getElementById('context').placeholder = t.contextPlaceholder;
             document.getElementById('analyzeButton').textContent = t.analyzeButton;
-            
+
             const previewTitle = document.querySelector('#csvPreviewSection h3');
             if (previewTitle) previewTitle.textContent = t.previewTitle;
-            
+
             const resultsTitle = document.querySelector('#resultsSection h2');
             if (resultsTitle) resultsTitle.textContent = t.resultsTitle;
-            
+
             document.querySelector('footer').textContent = t.footerText;
-            
+
             // Atualizar botão de idioma
             document.getElementById('langToggle').textContent = currentLang === 'pt' ? '🇺🇸 EN' : '🇧🇷 PT';
         }
@@ -624,7 +677,7 @@
             isDarkMode = !isDarkMode;
             const body = document.getElementById('mainBody');
             const themeToggle = document.getElementById('themeToggle');
-            
+
             if (isDarkMode) {
                 document.documentElement.setAttribute('data-theme', 'dark');
                 themeToggle.textContent = '☀️';
@@ -632,7 +685,7 @@
                 document.documentElement.removeAttribute('data-theme');
                 themeToggle.textContent = '🌙';
             }
-            
+
             // Salvar preferência
             localStorage.setItem('darkMode', isDarkMode);
         }
@@ -647,23 +700,23 @@
         function loadPreferences() {
             const savedLang = localStorage.getItem('language');
             const savedTheme = localStorage.getItem('darkMode');
-            
+
             if (savedLang && translations[savedLang]) {
                 currentLang = savedLang;
             }
-            
+
             if (savedTheme === 'true') {
                 isDarkMode = true;
                 document.documentElement.setAttribute('data-theme', 'dark');
                 document.getElementById('themeToggle').textContent = '☀️';
             }
-            
+
             updateLanguage();
         }
 
         document.addEventListener('DOMContentLoaded', () => {
             loadPreferences();
-            
+
             document.getElementById('langToggle').addEventListener('click', toggleLanguage);
             document.getElementById('themeToggle').addEventListener('click', toggleTheme);
             const apiKeyInput = document.getElementById('apiKey');
@@ -750,8 +803,8 @@
                                 }
                                 parsedCsvData = results.data;
                                 if (!parsedCsvData || parsedCsvData.length === 0) {
-                                     showToast(getTranslation('errors.csvEmpty'), 'error');
-                                     parsedCsvData = null;
+                                    showToast(getTranslation('errors.csvEmpty'), 'error');
+                                    parsedCsvData = null;
                                 }
                                 displayCsvPreview(parsedCsvData);
                             },
@@ -801,13 +854,13 @@
                     // 🔥 NOVA ABORDAGEM: Análise estatística local completa
                     console.log('Iniciando análise estatística local...');
                     const localAnalysis = performLocalAnalysis(parsedCsvData);
-                    
+
                     if (!localAnalysis) {
                         throw new Error('Falha na análise estatística local dos dados.');
                     }
-                    
+
                     console.log('Análise local concluída:', localAnalysis);
-                    
+
                     // Criar prompt otimizado com sumário estatístico
                     const prompt = `
 Você é um analista de dados sênior especialista. Analise o sumário estatístico abaixo e forneça insights acionáveis baseados no contexto fornecido pelo usuário.
@@ -843,12 +896,12 @@ Foque em insights práticos e acionáveis, não em repetir as estatísticas.
 
                     const selectedModel = document.getElementById('modelSelect').value;
                     const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/${selectedModel}:generateContent?key=${apiKey}`;
-                    
+
                     const payload = {
                         contents: [{ parts: [{ text: prompt }] }],
                         generationConfig: {
                             temperature: 0.7,
-                            maxOutputTokens: 2048
+                            maxOutputTokens: 8192
                         }
                     };
 
@@ -865,18 +918,18 @@ Foque em insights práticos e acionáveis, não em repetir as estatísticas.
 
                                 if (response.status === 429 || response.status === 503) {
                                     if (retries >= maxRetries) return response; // Retorna o erro para ser tratado
-                                    
+
                                     const waitTime = 2000 * Math.pow(2, retries); // 2s, 4s, 8s
                                     console.warn(`Rate limit hit (${response.status}). Retrying in ${waitTime}ms...`);
-                                    
+
                                     // Atualiza toast
-                                    showToast(`${getTranslation('errors.rateLimitRetrying')} ${waitTime/1000}s...`, 'warning');
-                                    
+                                    showToast(`${getTranslation('errors.rateLimitRetrying')} ${waitTime / 1000}s...`, 'warning');
+
                                     await new Promise(resolve => setTimeout(resolve, waitTime));
                                     retries++;
                                     continue;
                                 }
-                                
+
                                 return response;
                             } catch (error) {
                                 if (retries >= maxRetries) throw error;
@@ -892,11 +945,22 @@ Foque em insights práticos e acionáveis, não em repetir as estatísticas.
                     if (!response.ok) {
                         const errorData = await response.json();
                         console.error("Erro da API:", errorData);
-                        throw new Error(`Erro da API (${response.status}): ${errorData.error?.message || response.statusText}`);
+
+                        let friendlyMessage = errorData.error?.message || response.statusText;
+
+                        if (response.status === 403) {
+                            friendlyMessage = "Chave de API inválida ou sem permissão. Verifique no AI Studio.";
+                        } else if (response.status === 404) {
+                            friendlyMessage = "Modelo selecionado não disponível para esta chave de API. Tente outro modelo.";
+                        } else if (response.status === 429) {
+                            friendlyMessage = "Limite de requisições excedido mesmo após tentativas. Tente novamente em instantes.";
+                        }
+
+                        throw new Error(`Erro da API (${response.status}): ${friendlyMessage}`);
                     }
 
                     const result = await response.json();
-                    
+
                     let llmResponseText = "Não foi possível extrair a resposta do LLM ou a resposta estava vazia.";
                     if (result.candidates && result.candidates.length > 0 &&
                         result.candidates[0].content && result.candidates[0].content.parts &&
@@ -904,7 +968,7 @@ Foque em insights práticos e acionáveis, não em repetir as estatísticas.
                         result.candidates[0].content.parts[0].text) {
                         llmResponseText = result.candidates[0].content.parts[0].text;
                     } else {
-                         console.warn("Estrutura de resposta inesperada ou vazia do LLM:", result);
+                        console.warn("Estrutura de resposta inesperada ou vazia do LLM:", result);
                     }
 
                     if (typeof marked !== 'undefined') {
@@ -913,7 +977,7 @@ Foque em insights práticos e acionáveis, não em repetir as estatísticas.
                             breaks: true, // Adiciona <br> para quebras de linha simples
                             gfm: true // Habilita GitHub Flavored Markdown (melhor para tabelas, etc., se o LLM usar)
                         });
-                        
+
                         // Adicionar sumário estatístico como seção expandível
                         const fullAnalysis = `
 ## 📈 **Análise Estatística Detalhada**
@@ -933,7 +997,7 @@ ${localAnalysis.summary}
 ---
 
 ${llmResponseText}`;
-                        
+
                         analysisOutput.innerHTML = marked.parse(fullAnalysis);
                     } else {
                         analysisOutput.textContent = "Erro: Biblioteca Marked.js não carregada. A formatação pode estar incorreta.\n\n" + llmResponseText;
@@ -955,4 +1019,5 @@ ${llmResponseText}`;
         });
     </script>
 </body>
+
 </html>
